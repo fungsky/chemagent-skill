@@ -1,6 +1,6 @@
 ---
 name: chemagent
-description: Query local ChemAgent chemistry R&D data: formulas, materials, compliance.
+description: "Query local ChemAgent chemistry R&D data: formulas, materials, compliance."
 version: 0.1.0
 author: ChemAgent Contributors
 license: Apache-2.0
