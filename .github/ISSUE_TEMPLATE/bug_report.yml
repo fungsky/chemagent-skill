@@ -1,0 +1,52 @@
+name: Bug Report / 问题反馈
+description: Report a problem with the skill — installation, CLI client, or knowledge cards. 报告技能安装、客户端或知识卡片的问题。
+title: "[Bug] "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reporting! 感谢反馈。请尽量补充以下信息，便于快速定位。
+  - type: dropdown
+    id: platform
+    attributes:
+      label: Agent Platform / 平台
+      description: Which agent platform are you using? 你使用哪个 AI 助理平台？
+      options:
+        - Codex
+        - Hermes
+        - OpenClaw
+        - Other
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: Version / 版本
+      description: Skill version or git ref (e.g. v1.0.0, main)
+      placeholder: "v1.0.0"
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened? / 现象
+      description: Describe the issue and expected behavior. 描述问题现象与预期行为。
+      placeholder: "When I ask for a formula, the assistant says the skill is unavailable..."
+    validations:
+      required: true
+  - type: textarea
+    id: repro
+    attributes:
+      label: Reproduction steps / 复现步骤
+      description: Steps to reproduce, including the prompt you used. 复现步骤，包括使用的提问。
+      render: shell
+  - type: textarea
+    id: logs
+    attributes:
+      label: Logs / 日志
+      description: Relevant command output or error messages. 相关命令输出或错误信息。
+      render: shell
+  - type: input
+    id: chemagent-version
+    attributes:
+      label: ChemAgent version / 后端版本
+      description: Backend ChemAgent version if known. 如已知，填写后端 ChemAgent 版本。
