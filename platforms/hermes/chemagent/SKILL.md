@@ -88,7 +88,11 @@ agent：python scripts/chemagent_client.py search-formulas "耐候" --category �
 
 技能自带静态知识库，存放 ChemAgent API 之外的结构化资料（调研卡片、工艺路线、行业数据等）。
 
-- 存放位置：`references` 目录下的 `knowledge` 子目录（Markdown 卡片，索引见 `INDEX.md`）
+- 存放位置：`references` 目录下的 `knowledge` 子目录（Markdown 调研卡片）
+- 卡片清单（先读 `references/knowledge/INDEX.md` 索引）：
+  - `references/knowledge/球形硅粉.md`
+  - `references/knowledge/溶胶-凝胶法球形二氧化硅微球.md`
+  - `references/knowledge/球形硅粉中试工艺.md`
 - 检索顺序：回答问题时**先查 ChemAgent API → 无数据再查本知识库 → 都没有则说明缺失**；如需外部资料，由 AI 助理自行联网 / 向量数据库 / MCP 补充并标注来源
 - 使用方式：用 `rg` 读取 `INDEX.md` 定位卡片，再读取对应卡片作答；引用时给出卡片文件名
 - 新资料入库：经用户确认后以「调研卡片」形式追加，卡片必须标注来源与日期，禁止编造数据；只追加不删改既有内容
