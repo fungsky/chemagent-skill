@@ -69,7 +69,7 @@ agent：python scripts/chemagent_client.py search-formulas "耐候" --category �
    python scripts/chemagent_client.py standards       # 国标/行标登记索引
    python scripts/chemagent_client.py compliance-domains
    python scripts/chemagent_client.py compliance-check --file f.json --domains construction
-   python scripts/chemagent_client.py materials-detail "气相二氧化硅A200"
+   python scripts/chemagent_client.py materials-detail "气相二氧化硅"
    python scripts/chemagent_client.py kb-stats                # 知识库统计
    python scripts/chemagent_client.py kb-search "球形硅粉"    # 语义检索（需配 embedding）
    python scripts/chemagent_client.py import-formula f.json   # 登记/批量导入配方

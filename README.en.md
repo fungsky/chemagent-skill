@@ -34,7 +34,6 @@ Design principles:
 
 ```
 chemagent-skill/
-├── .codex-plugin/                # Codex plugin manifest
 ├── skills/
 │   └── chemagent/                # The skill itself (copy to ~/.codex/skills/ to load)
 │       ├── SKILL.md              # Skill instructions (entry point)
@@ -90,7 +89,7 @@ python scripts/chemagent_client.py similar FC-001 --top-k 5
 
 # Materials
 python scripts/chemagent_client.py search-materials "silica" --function filler
-python scripts/chemagent_client.py materials-detail "气相二氧化硅A200"
+python scripts/chemagent_client.py materials-detail "气相二氧化硅"
 
 # Standards & compliance
 python scripts/chemagent_client.py standards

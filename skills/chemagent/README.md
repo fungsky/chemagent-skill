@@ -54,7 +54,7 @@ python scripts/chemagent_client.py search-formulas "耐候" --category 涂料
 python scripts/chemagent_client.py formula FC-001
 python scripts/chemagent_client.py similar FC-001 --top-k 5
 python scripts/chemagent_client.py search-materials "硅" --function 填料
-python scripts/chemagent_client.py materials-detail "气相二氧化硅A200"
+python scripts/chemagent_client.py materials-detail "气相二氧化硅"
 python scripts/chemagent_client.py standards
 python scripts/chemagent_client.py compliance-check --file f.json --domains construction
 python scripts/chemagent_client.py kb-stats                     # 知识库统计

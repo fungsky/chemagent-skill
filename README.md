@@ -34,7 +34,6 @@ ChemAgent Skill 把"化学研发问答"沉淀为一个可复用的 Agent 技能�
 
 ```
 chemagent-skill/
-├── .codex-plugin/                # Codex 插件清单
 ├── skills/
 │   └── chemagent/                # 技能本体（放入 ~/.codex/skills/ 即可加载）
 │       ├── SKILL.md              # 技能指令（入口）
@@ -90,7 +89,7 @@ python scripts/chemagent_client.py similar FC-001 --top-k 5
 
 # 原料
 python scripts/chemagent_client.py search-materials "硅" --function 填料
-python scripts/chemagent_client.py materials-detail "气相二氧化硅A200"
+python scripts/chemagent_client.py materials-detail "气相二氧化硅"
 
 # 标准与合规
 python scripts/chemagent_client.py standards

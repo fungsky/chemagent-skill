@@ -9,7 +9,7 @@
     python chemagent_client.py formula F-001
     python chemagent_client.py similar F-001 --top-k 5
     python chemagent_client.py search-materials "硅" --function 填料
-    python chemagent_client.py materials-detail "气相二氧化硅A200"
+    python chemagent_client.py materials-detail "气相二氧化硅"   # 精确匹配失败时自动模糊回退
     python chemagent_client.py standards
     python chemagent_client.py compliance-domains
     python chemagent_client.py compliance-check              # 内置示例配方演示
@@ -208,6 +208,23 @@ def main():
     elif args.cmd == "materials-detail":
         code, data = _request(base, "GET",
                               f"/api/materials/{urllib.parse.quote(args.name)}/detail", timeout=timeout)
+        if code == 404:
+            # 精确名称不存在时模糊回退：用关键词检索，取名称包含该关键词的原料
+            qs = f"keyword={urllib.parse.quote(args.name)}&limit=5"
+            c2, hits = _request(base, "GET", f"/api/materials?{qs}", timeout=timeout)
+            if c2 == 200 and isinstance(hits, list):
+                for hit in hits:
+                    if args.name in hit.get("name", ""):
+                        code, data = _request(
+                            base, "GET",
+                            f"/api/materials/{urllib.parse.quote(hit['name'])}/detail",
+                            timeout=timeout)
+                        break
+                else:
+                    code, data = 404, {"error_code": "E404",
+                                        "message": f"原材料 '{args.name}' 不存在，且未找到名称包含该关键词的原料；请先运行 search-materials 确认名称"}
+            else:
+                code, data = c2, hits
     elif args.cmd == "materials-stats":
         code, data = _request(base, "GET",
                               f"/api/materials/{urllib.parse.quote(args.name)}/stats", timeout=timeout)
