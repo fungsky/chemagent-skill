@@ -64,12 +64,26 @@ python run.py ui      # (optional) Web UI
 
 No Docker required. When Neo4j is not configured, the backend automatically falls back to local data mode (bundled sample formulas / materials), so all read-only features work out of the box.
 
-### 2. Install the Skill
+### 2. Install the Skill (pick your platform)
 
-Copy `skills/chemagent/` into your agent's skills directory:
+**Codex (as a skill)**:
 
 ```powershell
-Copy-Item -Recurse skills/chemagent $HOME.codexskillschemagent
+Copy-Item -Recurse skills/chemagent $HOME\.codex\skills\chemagent
+```
+
+**Codex (as a plugin)**: clone this repo — `.codex-plugin/plugin.json` declares `skills/` as the skill directory.
+
+**Hermes**:
+
+```powershell
+Copy-Item -Recurse platforms/hermes/chemagent $env:LOCALAPPDATA\hermes\skills\chemagent
+```
+
+**OpenClaw / ClawHub**:
+
+```bash
+cp -r platforms/openclaw/chemagent ~/.openclaw/skills/chemagent
 ```
 
 ### 3. Verify

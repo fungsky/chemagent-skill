@@ -1,8 +1,15 @@
 ---
 name: chemagent
-description: Query the local ChemAgent chemical R&D API for formulas, raw materials, performance prediction, knowledge-base search, and GB/EU compliance screening. Use when the user asks about chemical formulations, material data, formula analysis, or chemistry R&D questions backed by their self-hosted ChemAgent instance.
+description: Query local ChemAgent chemistry R&D data: formulas, materials, compliance.
+version: 0.1.0
+author: ChemAgent Contributors
+license: MIT
+platforms: [linux, macos, windows]
+metadata:
+  hermes:
+    tags: [chemagent, chemistry, formula, 配方, materials, compliance, 涂料, 化学研发]
+    related_skills: []
 ---
-
 # ChemAgent Skill
 
 ChemAgent is a self-hosted chemical R&D assistant. Its FastAPI backend runs at `http://localhost:8000` by default. This skill answers chemistry formulation questions by querying that API instead of guessing.

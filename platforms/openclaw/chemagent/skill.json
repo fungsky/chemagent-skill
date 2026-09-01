@@ -1,0 +1,38 @@
+{
+  "name": "chemagent",
+  "version": "0.1.0",
+  "description": "Query the local ChemAgent chemical R&D API for formulas, raw materials, performance prediction, knowledge-base search, and GB/EU compliance screening.",
+  "author": "ChemAgent Contributors",
+  "main": "scripts/chemagent_client.py",
+  "keywords": [
+    "chemagent",
+    "chemistry",
+    "formula",
+    "配方",
+    "materials",
+    "原料",
+    "compliance",
+    "合规",
+    "涂料",
+    "coatings",
+    "chemical R&D",
+    "化学研发"
+  ],
+  "features": [
+    "配方检索 / 详情 / 相似配方",
+    "原料查询与详情",
+    "国标/行标索引查询",
+    "GB/EU/RoHS 合规初筛",
+    "本地知识库卡片（无需 embedding）",
+    "配方登记与批量导入"
+  ],
+  "scripts": {
+    "health": "python scripts/chemagent_client.py health",
+    "search-formulas": "python scripts/chemagent_client.py search-formulas \"关键词\" --category 涂料",
+    "search-materials": "python scripts/chemagent_client.py search-materials \"关键词\" --function 填料",
+    "standards": "python scripts/chemagent_client.py standards",
+    "compliance-check": "python scripts/chemagent_client.py compliance-check --file f.json --domains construction",
+    "kb-stats": "python scripts/chemagent_client.py kb-stats",
+    "import-formula": "python scripts/chemagent_client.py import-formula f.json"
+  }
+}

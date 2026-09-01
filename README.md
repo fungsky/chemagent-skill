@@ -34,8 +34,9 @@ ChemAgent Skill 把"化学研发问答"沉淀为一个可复用的 Agent 技能�
 
 ```
 chemagent-skill/
+├── .codex-plugin/                # Codex 插件版清单（可选）
 ├── skills/
-│   └── chemagent/                # 技能本体（放入 ~/.codex/skills/ 即可加载）
+│   └── chemagent/                # 技能本体（核心，多平台通用）
 │       ├── SKILL.md              # 技能指令（入口）
 │       ├── README.md             # 技能安装与使用说明
 │       ├── references/
@@ -47,6 +48,9 @@ chemagent-skill/
 │       │       └── 球形硅粉中试工艺.md
 │       └── scripts/
 │           └── chemagent_client.py  # API 客户端（仅标准库）
+├── platforms/                    # 各平台发布版
+│   ├── hermes/chemagent/         # Hermes 版（Hermes frontmatter + 安装说明）
+│   └── openclaw/chemagent/       # OpenClaw/ClawHub 版（含 skill.json）
 ├── LICENSE                      # MIT
 └── README.md                    # 本文件
 ```
@@ -64,12 +68,26 @@ python run.py ui      # （可选）Web 界面
 
 无需 Docker；未配置 Neo4j 时自动进入本地数据模式（内置样例配方 / 原料），检索类功能开箱可用。
 
-### 2. 安装技能
+### 2. 安装技能（按平台选择）
 
-将 `skills/chemagent/` 复制到 Agent 技能目录：
+**Codex（技能方式）**：
 
 ```powershell
-Copy-Item -Recurse skills/chemagent $HOME.codexskillschemagent
+Copy-Item -Recurse skills/chemagent $HOME\.codex\skills\chemagent
+```
+
+**Codex（插件方式）**：克隆本仓库即可，`.codex-plugin/plugin.json` 已声明 `skills/` 为技能目录。
+
+**Hermes**：
+
+```powershell
+Copy-Item -Recurse platforms/hermes/chemagent $env:LOCALAPPDATA\hermes\skills\chemagent
+```
+
+**OpenClaw / ClawHub**：
+
+```bash
+cp -r platforms/openclaw/chemagent ~/.openclaw/skills/chemagent
 ```
 
 ### 3. 验证
