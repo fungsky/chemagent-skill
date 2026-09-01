@@ -4,7 +4,7 @@
 
 > An agent skill package for the self-hosted ChemAgent chemical R&D system — **the agent handles understanding & reasoning, the backend handles data & rules**. No backend LLM required; offline, login-free, and ready to use.
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![License: Apache-2.0](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](LICENSE)
 ![Python](https://img.shields.io/badge/Python-3.8%2B-blue)
 ![Client](https://img.shields.io/badge/Client-stdlib-green)
 
@@ -47,7 +47,7 @@ chemagent-skill/
 │       │       └── 球形硅粉中试工艺.md
 │       └── scripts/
 │           └── chemagent_client.py  # API client (stdlib only)
-├── LICENSE                      # MIT
+├── LICENSE                      # Apache-2.0
 └── README.md                    # This file
 ```
 
@@ -132,4 +132,4 @@ Full command list: `python scripts/chemagent_client.py --help`. Custom endpoint:
 
 ## License
 
-[MIT](LICENSE) © 2026 ChemAgent Contributors
+[Apache-2.0](LICENSE) © 2026 ChemAgent Contributors

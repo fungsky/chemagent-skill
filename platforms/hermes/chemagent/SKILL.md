@@ -3,7 +3,7 @@ name: chemagent
 description: Query local ChemAgent chemistry R&D data: formulas, materials, compliance.
 version: 0.1.0
 author: ChemAgent Contributors
-license: MIT
+license: Apache-2.0
 platforms: [linux, macos, windows]
 metadata:
   hermes:

@@ -4,7 +4,7 @@
 
 > 面向自托管 ChemAgent 化学研发系统的 Agent 技能包 —— **Agent 负责理解与推理，后端负责数据与规则**，不依赖后端 LLM，可离线、免登录、开箱即用。
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![License: Apache-2.0](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](LICENSE)
 ![Python](https://img.shields.io/badge/Python-3.8%2B-blue)
 ![Client](https://img.shields.io/badge/Client-stdlib-green)
 
@@ -51,7 +51,7 @@ chemagent-skill/
 ├── platforms/                    # 各平台发布版
 │   ├── hermes/chemagent/         # Hermes 版（Hermes frontmatter + 安装说明）
 │   └── openclaw/chemagent/       # OpenClaw/ClawHub 版（含 skill.json）
-├── LICENSE                      # MIT
+├── LICENSE                      # Apache-2.0
 └── README.md                    # 本文件
 ```
 
@@ -136,4 +136,4 @@ python scripts/chemagent_client.py import-formula f.json       # 登记/批量�
 
 ## License
 
-[MIT](LICENSE) © 2026 ChemAgent Contributors
+[Apache-2.0](LICENSE) © 2026 ChemAgent Contributors

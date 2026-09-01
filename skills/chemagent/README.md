@@ -79,4 +79,4 @@ python scripts/chemagent_client.py import-formula f.json        # 登记/批量�
 
 ## License
 
-MIT © 2026 ChemAgent Contributors（仓库根目录 `LICENSE`）。
+Apache-2.0 © 2026 ChemAgent Contributors（仓库根目录 `LICENSE`）。
