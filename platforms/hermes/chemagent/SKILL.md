@@ -97,6 +97,32 @@ agent：python scripts/chemagent_client.py search-formulas "耐候" --category �
 - 使用方式：用 `rg` 读取 `INDEX.md` 定位卡片，再读取对应卡片作答；引用时给出卡片文件名
 - 新资料入库：经用户确认后以「调研卡片」形式追加，卡片必须标注来源与日期，禁止编造数据；只追加不删改既有内容
 
+## 安装自检与应用自检（Self-Check）
+
+### 首次安装后自检（装完必做，一次性）
+
+1. **结构检查**：确认以下文件齐全（路径相对技能根目录）：
+   - `SKILL.md`、`references/api_reference.md`
+   - `references/knowledge/INDEX.md`、`references/knowledge/球形硅粉.md`、`references/knowledge/溶胶-凝胶法球形二氧化硅微球.md`、`references/knowledge/球形硅粉中试工艺.md`
+   - `scripts/chemagent_client.py`
+2. **客户端检查**：`python scripts/chemagent_client.py --help` 能正常输出命令列表（Python 3.8+）
+3. **后端检查**：`python scripts/chemagent_client.py health` 返回 ok
+4. **输出安装报告**：逐项标记 ✅ / ⚠️ / ❌；缺文件 → 提示用 GitHub 重新拉取或从仓库复制；后端未启动 → 给出启动命令（`python run.py api`，需用户同意后才代为启动）；不静默跳过任何一项
+
+### 每次应用时自检（用时快速过一遍）
+
+1. 先跑一次 `health`；失败 → 检查端口 8000、`CHEMAGENT_API_BASE` 覆盖值，按需修复（最多 2 次尝试），仍失败则报告用户并提供启动命令
+2. 确认客户端脚本与知识库卡片在位（路径被移动/删除时先定位，找不到则提示重新安装）
+3. 检查环境覆盖：`CHEMAGENT_API_BASE` / `--api-base` 是否被设置；已设置则以覆盖值为准，并在回答中说明数据来源
+4. 修复动作记录「症状 → 处置 → 结果」；无法修复时如实报告，禁止编造
+
+### 红线
+
+- 不修改后端数据（除用户明确要求的登记/导入）
+- 不自动启停服务、不静默安装依赖；涉及系统级操作先征求用户同意
+- 修复失败不无限重试（≤2 次），不做无依据的猜测性修改
+
+
 ## Compliance
 
 Use `/api/compliance/check` for regulatory screening (GB/GB-T, EU, EN, RoHS, cosmetics, textiles). Results are research-stage screening references with approximate limits — always state that they are not official compliance determinations.
